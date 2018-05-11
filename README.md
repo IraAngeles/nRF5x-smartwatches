@@ -1,10 +1,27 @@
 nRF52/nRF51 Smartwatches and Activity Trackers for Wearable Device Development
 =============================
-
 Resources for reverse engineering generic [Nordic Semiconductor](https://www.nordicsemi.com) nRF52832 and nRF51822 ARM Cortex based Smartwatches and activity trackers. These devices are my primary development platform for rapid prototyping of wearables. You get a nRF52832 ARM Cortex M4 SoC MCU, color OLED display, accelerometer, HR LED, HR photodetector, vibration motor, LiPo battery, battery charger, injection molded enclosure and strap for $30-$40. Using these devices as a development platform means faster, more ambitious prototyping - I treat them as disposable and have personally destroyed more than 20 over the past two years. These devices can be programmed using [nRF5X ArduinoCore](https://github.com/sandeepmistry/arduino-nRF5), [ARM Mbed](https://www.mbed.com) or directly with the [Nordic nRF5X SDK](http://developer.nordicsemi.com/nRF5_SDK/doc/) using ARM [Keil](http://www.keil.com/) or the [GNU ARM Embedded](https://launchpad.net/gcc-arm-embedded) GCC toolchain. Devices can be flashed using [nRFgo Studio](https://www.nordicsemi.com/eng/Products/2.4GHz-RF/nRFgo-Studio), [nRFjprog Win](https://www.nordicsemi.com/eng/nordic/Products/nRF52-DK/nRF5x-Command-Line-Tools-Win32/51499) , [nRFjprog Linux](https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF5x-Command-Line-Tools-Linux64/51386) , [nRFjprog Mac](https://www.nordicsemi.com/eng/nordic/Products/nRF51822/nRF5x-Command-Line-Tools-OSX/53402) , [OpenOCD](http://openocd.org/) and [ArduinoCore](https://github.com/sandeepmistry/arduino-nRF5) Arduino IDE Plugin.
 
 NOTE: I will try to keep purchase links updated but one can only do so much. DuckDuckGo/Google search is your friend. I have worked with the X9 more than any other device and have placed X9 related files in the root of this repo. I am still in the process of hacking components for other listed devices, and you are of course welcome to contribute!
 
+# Applications
+* [CMI Lab](https://matter.childmind.org/)
+* [Home Smart Mesh](https://homesmartmesh.github.io/)
+
+# Install
+* Follow steps from [this github](https://github.com/sandeepmistry/arduino-nRF5) to :
+    - install the Arduino
+    * install the new board with board manager
+    * Add the core by cloning it in the hardware folder
+* copy Wearable-nRF52-X9. lines from ```Documents\Arduino\hardware\sandeepmistry\nRF5\boards.txt``` into ```Arduino\packages\sandeepmistry\hardware\nRF5\0.5.1\boards.txt```
+* copy the X9 variant directory from ```X9-nrf52832-activity-tracker\Firmware\sandeep_arduinocore_variant\Wearable-nRF52-X9``` into your core variants directory ```Arduino\packages\sandeepmistry\hardware\nRF5\0.5.1\variants```
+* copy libraries from ```common\libraries``` into ```Arduino\libraries```
+
+* Hackaday example ```git clone https://github.com/lexus2k/ssd1306.git``` into the Arduino library directory
+
+# Issues
+* cloning the mentionned [repo](https://github.com/lexus2k/ssd1306) in the [issue](https://github.com/curtpw/nRF5x-device-reverse-engineering/issues/4) then compiling nrf52_X9Project_HACKADAY.ino: ```Arduino\libraries\ssd1306\src/ssd1306_hal/arduino/io.h:45:27: fatal error: avr/sleep.h: No such file or directory```
+* looks like the version patched for the nRF52 is not available
 
 X9 Pro nRF52832 Based Color Smartwatch 
 ------------
